@@ -37,29 +37,20 @@ namespace LinkedListAssignment
                 temp = temp.next;
             }
         }
-        internal Node InsertAtParticularPosition(int PreviousData, Node Newdata)
+        
+        public Node RemovaLastNode()
         {
-            Node temp = this.head;
-            while (temp != null) 
-            {
-                while (temp.data == PreviousData)
-                {
-                    Node newnode = temp.next;
-                    temp.next = Newdata;
-                    temp.next.next = newnode;
-
-                    break;
-                }
-                temp = temp.next;
-            }
-            return head;
-        }
-        public Node RemoveFirstNode()
-        {
-            if (this.head == null)
+            if (head == null)
                 return null;
-            this.head = this.head.next;
-            return this.head;
+            if (head.next == null)
+                return null;
+            Node newNode = head;
+            while (newNode.next.next != null)
+            {
+                newNode = newNode.next;
+            }
+            newNode.next = null;
+            return head;
         }
     }
 }
