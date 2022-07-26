@@ -26,6 +26,20 @@ namespace LinkedListAssignment
                 }
                 Console.WriteLine("{0} inserted into the linked list", node.data);
             }
+            public void Push(int data)
+        {
+            Node node = new Node(data);
+            if(this.head == null)
+                    this.head = node;
+            else
+            {
+                node.next = head;
+                head = node;
+            }
+            Console.WriteLine("{0} inserted into the linked list", node.data);
+    }
+
+
             public void Display()
             {
                 Node temp = this.head;
